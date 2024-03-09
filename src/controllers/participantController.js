@@ -12,15 +12,24 @@ exports.listParticipants = async (req, res) => {
 };
 
 // **Afficher un participant**
-exports.getParticipant = async (req, res) => {
+exports.getParticipant = async (req, res, next) => {
   try {
-    const participant = await Participant.findById(req.params.id);
+    const participantId = req.params.id;
+
+    // Vérifiez si l'ID fourni est un ObjectId valide
+    if (!mongoose.Types.ObjectId.isValid(participantId)) {
+      throw new Error('Invalid participant ID');
+    }
+
+    const participant = await Participant.findById(participantId);
+
     if (!participant) {
       throw new Error('Participant introuvable');
     }
+
     res.json({ success: true, data: participant });
   } catch (error) {
-    next(error);
+    next(error); // Pass the error to the middleware
   }
 };
 

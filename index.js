@@ -15,8 +15,8 @@ mongoose.connect("mongodb+srv://webya39oubiane:YXSs0f1wv66lX7vQ@cluster0.up4qdom
 })
 const evenementRoutes = require('./src/routes/eventRoutes')
 const participantRoutes = require('./src/routes/participantsRoutes')
-app.use('/api', evenementRoutes);
-app.use('/api',participantRoutes)
+app.use('/api/event', evenementRoutes);
+app.use('/api/participant',participantRoutes)
 
 
 app.listen(4000, ()=>{

@@ -3,18 +3,18 @@ const router = express.Router();
 const eventController = require('../controllers/eventController');
 
 // **Liste des événements**
-router.get('/', EvenementsController.listEvenements);
+router.get('/', eventController.listEvenements);
 
 // **Afficher un événement**
-router.get('/:id', EvenementsController.getEvenement);
+router.get('/:id', eventController.getEvenement);
 
 // **Créer un événement**
-router.post('/', EvenementsController.createEvenement);
+router.post('/', eventController.createEvenement);
 
 // **Modifier un événement**
-router.put('/:id', EvenementsController.updateEvenement);
+router.put('/:id', eventController.updateEvenement);
 
 // **Supprimer un événement**
-router.delete('/:id', EvenementsController.deleteEvenement);
+router.delete('/:id', eventController.deleteEvenement);
 
 module.exports = router;
