@@ -1,5 +1,5 @@
 const Participant = require('../models/participant')
-
+const mongoose  = require("mongoose");
 
 // **Liste des participants**
 exports.listParticipants = async (req, res) => {
